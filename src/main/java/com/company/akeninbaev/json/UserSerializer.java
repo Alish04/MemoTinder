@@ -20,7 +20,7 @@ public class UserSerializer extends StdSerializer<User> {
         gen.writeNumberField("id", user.getId());
         gen.writeStringField("firstName", user.getFirstName());
         gen.writeStringField("lastName", user.getLastName());
-        gen.writeStringField("sex", user.getSex());
+        gen.writeStringField("sex", String.valueOf(user.getSex()));
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
         gen.writeStringField("birthday", user.getBirthday().format(formatter));
         gen.writeStringField("country", user.getCountry());

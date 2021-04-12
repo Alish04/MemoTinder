@@ -1,5 +1,6 @@
 package com.company.akeninbaev.json;
 
+import com.company.akeninbaev.model.Sex;
 import com.company.akeninbaev.model.User;
 import com.company.akeninbaev.model.UserRole;
 import com.fasterxml.jackson.core.JsonParser;
@@ -26,6 +27,8 @@ public class UserDeserializer extends StdDeserializer<User> {
         String lastName = root.get("lastName").asText();
         String login = root.get("login").asText();
         String sex = root.get("sex").asText();
+        sex = sex.toUpperCase();
+        Sex sex1 = Sex.valueOf(sex);
         String country = root.get("country").asText();
         String city = root.get("city").asText();
         String phone = root.get("phone").asText();
@@ -37,6 +40,6 @@ public class UserDeserializer extends StdDeserializer<User> {
         String role = root.get("role").asText();
         role = role.toUpperCase();
         UserRole userRole = UserRole.valueOf(role);
-        return new User(id, firstName, lastName, sex, bday, country, city, phone, userRole, login, hashed);
+        return new User(id, firstName, lastName, sex1, bday, country, city, phone, userRole, login, hashed);
     }
 }

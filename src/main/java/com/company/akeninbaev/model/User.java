@@ -22,7 +22,7 @@ public class User implements Model<Integer> {
     private String lastName;
 
     @DatabaseField
-    private String sex;
+    private Sex sex;
 
     @DatabaseField(dataType = DataType.SERIALIZABLE)
     private LocalDate birthday;
@@ -71,11 +71,11 @@ public class User implements Model<Integer> {
         this.lastName = lastName;
     }
 
-    public String getSex() {
+    public Sex getSex() {
         return sex;
     }
 
-    public void setSex(String sex) {
+    public void setSex(Sex sex) {
         this.sex = sex;
     }
 
@@ -136,7 +136,7 @@ public class User implements Model<Integer> {
         this.password = password;
     }
 
-    public User(Integer id, String firstName, String lastName, String sex, LocalDate birthday, String country, String city, String phone, UserRole role, String login, String password) {
+    public User(Integer id, String firstName, String lastName, Sex sex, LocalDate birthday, String country, String city, String phone, UserRole role, String login, String password) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
